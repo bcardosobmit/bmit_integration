@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_BMIT_TB_LOG_RAP'
+define service ZUI_BMIT_TB_LOG_RAP_O4 {
+  expose ZC_BMIT_TB_LOG_RAP;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition Odata V2'
+define service ZUI_BMIT_TB_LOG_RAP_O2 {
+  expose ZC_BMIT_TB_LOG_RAP;
+}

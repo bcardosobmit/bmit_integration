@@ -1,0 +1,72 @@
+managed implementation in class ZBP_BMIT_TB_LOG_RAP unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_BMIT_TB_LOG_RAP
+persistent table zbmit_tb_log_rap
+draft table ZBMIT_TB_LOG_RAD
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   MessageguID;
+
+  field ( readonly )
+   LocalCreatedAt,
+   LocalCreatedBy,
+   LastChangedAt,
+   LocalLastChangedAt,
+   LocalLastChangedBy;
+
+  field ( readonly : update )
+   MessageguID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZBMIT_TB_LOG_RAP
+  {
+    MessageguID = messageguid;
+    Logstart = logstart;
+    Status = status;
+    Archivinglogattachments = archivinglogattachments;
+    Customstatus = customstatus;
+    Type = type;
+    Packagename = packagename;
+    PackageID = packageid;
+    ID = id;
+    Name = name;
+    Origincomponentname = origincomponentname;
+    Receiver = receiver;
+    Previouscomponentname = previouscomponentname;
+    Logend = logend;
+    Alternateweblink = alternateweblink;
+    Loglevel = loglevel;
+    Archivingstatus = archivingstatus;
+    TransactionID = transactionid;
+    Sender = sender;
+    Archivingreceiverchannelmessag = archivingreceiverchannelmessag;
+    Applicationmessagetype = applicationmessagetype;
+    ApplicationmessageID = applicationmessageid;
+    Localcomponentname = localcomponentname;
+    Archivingsenderchannelmessages = archivingsenderchannelmessages;
+    CorrelationID = correlationid;
+    Integrationflowname = integrationflowname;
+    Archivingpersistedmessages = archivingpersistedmessages;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+}
